@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cyn.udas.mapper.ReportDefMapper">
+
+    <insert id="insert" parameterType="com.cyn.udas.entity.ReportDef">
+        INSERT INTO tb_report_def
+            (report_code,report_name,table_name,create_by,org_code,org_name)
+        VALUES
+            (#{reportCode},#{reportName},#{tableName},#{createBy},#{orgCode},#{orgName})
+    </insert>
+
+    <select id="getByReportCode" resultType="com.cyn.udas.entity.ReportDef">
+        SELECT * FROM tb_report_def
+        WHERE report_code = #{reportCode} AND del_flag = 0
+    </select>
+
+    <select id="selectReportList" resultType="com.cyn.udas.entity.ReportDef">
+        SELECT * FROM tb_report_def
+        WHERE del_flag = 0
+        <if test="reportName != null and reportName != ''">
+            AND report_name LIKE CONCAT('%',#{reportName},'%')
+        </if>
+        ORDER BY create_time DESC
+        LIMIT #{offset},#{pageSize}
+    </select>
+
+    <select id="selectReportCount" resultType="int">
+        SELECT COUNT(*) FROM tb_report_def
+        WHERE del_flag = 0
+        <if test="reportName != null and reportName != ''">
+            AND report_name LIKE CONCAT('%',#{reportName},'%')
+        </if>
+    </select>
+
+</mapper>
