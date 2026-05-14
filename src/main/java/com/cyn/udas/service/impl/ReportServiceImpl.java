@@ -1,10 +1,12 @@
 package com.cyn.udas.service.impl;
 
-import com.xxx.report.mapper.ReportCommonMapper;
-import com.xxx.report.mapper.ReportDefMapper;
-import com.xxx.report.service.ReportService;
-import com.xxx.report.util.ReportAuthUtil;
+
+import com.cyn.udas.mapper.ReportCommonMapper;
+import com.cyn.udas.mapper.ReportDefMapper;
+import com.cyn.udas.service.ReportService;
+import com.cyn.udas.util.ReportAuthUtil;
 import org.springframework.stereotype.Service;
+
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;

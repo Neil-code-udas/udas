@@ -1,9 +1,11 @@
 package com.cyn.udas.mapper;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import java.util.List;
 import java.util.Map;
 
+@Mapper
 public interface ReportCommonMapper {
 
     void executeCreateTable(@Param("sql") String sql);
